@@ -35,13 +35,12 @@ class MainActivity : AppCompatActivity() {
         progressBar.visibility = View.VISIBLE
 
         // Instantiate the RequestQueue.
-        val queue = Volley.newRequestQueue(this)
         currentImageUrl = "https://meme-api.herokuapp.com/gimme"
         val imageMeme = findViewById<ImageView>(R.id.imageMeme)
         // Request a string response from the provided URL.
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, currentImageUrl,null,
-            Response.Listener{ response ->
+            { response ->
                 val url = response.getString("url")
                 Glide.with(this).load(url).listener(object: RequestListener<Drawable>{
                     override fun onLoadFailed(
@@ -66,13 +65,12 @@ class MainActivity : AppCompatActivity() {
                     }
                 }).into(imageMeme)
             },
-            Response.ErrorListener {
+            {
                 Toast.makeText(this, "something went wrong, ops!", Toast.LENGTH_LONG).show()
             })
 
         // Add the request to the RequestQueue.
-        queue.add(jsonObjectRequest)
-
+        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest)
     }
     fun shareMeme(view: View) {
         val intent = Intent(Intent.ACTION_SEND)
