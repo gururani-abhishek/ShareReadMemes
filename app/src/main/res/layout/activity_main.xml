@@ -10,19 +10,31 @@
         android:id="@+id/imageMeme"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/Share"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/imageMeme"
+        app:layout_constraintLeft_toLeftOf="@id/imageMeme"
+        app:layout_constraintRight_toRightOf="@id/imageMeme"
+        app:layout_constraintTop_toTopOf="@id/imageMeme" />
 
     <Button
         android:id="@+id/Share"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:onClick="shareMeme"
+        android:backgroundTint="@color/black"
         android:padding="20dp"
         android:text="@string/textforShareButton"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent" />
@@ -34,7 +46,9 @@
         android:layout_height="wrap_content"
         android:onClick="nextMeme"
         android:padding="20dp"
+        android:backgroundTint="@color/black"
         android:text="@string/textforNextButton"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
