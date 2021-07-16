@@ -26,6 +26,19 @@
         app:layout_constraintRight_toRightOf="@id/imageMeme"
         app:layout_constraintTop_toTopOf="@id/imageMeme" />
 
+    <TextView
+        android:id="@+id/credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Designed By Abhishek"
+        app:layout_constraintBottom_toTopOf="@id/Next"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="7dp"
+        android:textSize="10sp"
+        android:layout_marginBottom="7dp"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/credits"
+        />
     <Button
         android:id="@+id/Share"
         android:layout_width="0dp"
