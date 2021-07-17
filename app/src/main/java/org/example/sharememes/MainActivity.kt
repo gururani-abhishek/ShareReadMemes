@@ -39,8 +39,8 @@ class MainActivity : AppCompatActivity() {
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, currentImageUrl,null,
             { response ->
-                val url = response.getString("url")
-                Glide.with(this).load(url).listener(object: RequestListener<Drawable>{
+                currentImageUrl = response.getString("url")
+                Glide.with(this).load(currentImageUrl).listener(object: RequestListener<Drawable>{
                     override fun onLoadFailed(
                         e: GlideException?,
                         model: Any?,
