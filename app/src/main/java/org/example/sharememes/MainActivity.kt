@@ -81,4 +81,13 @@ class MainActivity : AppCompatActivity() {
     fun nextMeme(view: View) {
         loadMeme()
     }
+
+    override fun onPause() {
+        super.onPause()
+        Thread(Runnable {
+            Glide.get(this).clearDiskCache() //1
+        }).start()
+        Glide.get(this).clearMemory() //2
+
+    }
 }
